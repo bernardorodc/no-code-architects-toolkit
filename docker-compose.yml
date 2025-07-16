@@ -12,7 +12,7 @@ services:
       - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true"
-      - "--certificatesresolvers.mytlschallenge.acme.email=${SSL_EMAIL}"
+      - "--certificatesresolvers.mytlschallenge.acme.email=bernardorodc@gmail.com
       - "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json"
     ports:
       - "80:80"
@@ -26,7 +26,7 @@ services:
       - .env
     labels:
       - traefik.enable=true
-      - traefik.http.routers.ncat.rule=Host(`${APP_DOMAIN}`)
+      - traefik.http.routers.ncat.rule=Host(`toolkit.bernardorodc.com`)
       - traefik.http.routers.ncat.tls=true
       - traefik.http.routers.ncat.entrypoints=web,websecure
       - traefik.http.routers.ncat.tls.certresolver=mytlschallenge
